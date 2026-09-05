@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini World Create TR Tag</title>
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoex45oKZBNf0A2ZPIXidxAiax8pGRbOx3ppJb4NvAUQ&s=10">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Tasarımı */
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-area img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .logo-area h1 {
+            font-size: 24px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Arama Kutusu */
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            width: 220px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: #1a2a6c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #b21f1f;
+        }
+
+        /* Ana İçerik Yerleşimi */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr 300px;
+            gap: 25px;
+        }
+
+        @media (max-width: 992px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Ortak Kart Stili */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 8px;
+        }
+
+        /* Sol Menü - Tag Profili */
+        .tag-profile-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .tag-list {
+            list-style: none;
+        }
+
+        .tag-list li {
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #444;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .tag-list li:hover {
+            background: #1a2a6c;
+            color: white;
+            padding-left: 15px;
+        }
+
+        /* Haberler Kısmı */
+        .news-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-size: 12px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+            background: #fdf0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .news-desc {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Sağ Taraf - Tag Sıralama */
+        .ranking-list {
+            list-style: none;
+        }
+
+        .ranking-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 600;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-number {
+            width: 25px;
+            height: 25px;
+            background: #eef2f7;
+            color: #1a2a6c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 12px;
+        }
+
+        .ranking-list li:nth-child(1) .rank-number {
+            background: #ffd700;
+            color: #fff;
+        }
+
+        .ranking-list li:nth-child(2) .rank-number {
+            background: #c0c0c0;
+            color: #fff;
+        }
+
+        .ranking-list li:nth-child(3) .rank-number {
+            background: #cd7f32;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Bilgi ve Arama Alanı -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoex45oKZBNf0A2ZPIXidxAiax8pGRbOx3ppJb4NvAUQ&s=10" alt="Logo">
+                <h1>Mini World Create TR Tag</h1>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Tag veya haber ara...">
+                <button type="button">Ara</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ana İçerik Yapısı -->
+    <div class="main-container">
+        
+        <!-- Sol Sütun: Tag Profili ve Etiketler -->
+        <aside>
+            <div class="card">
+                <h3>Tag Profili</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG04XD24OBYCvD9pIOdSB3Wio0WM3LETXZmgjW8HMeRg&s=10" alt="Tag Profili" class="tag-profile-img">
+                <ul class="tag-list">
+                    <li>Fa7</li>
+                    <li>SYK</li>
+                    <li>CcC</li>
+                    <li>Hkhomr</li>
+                    <li>YTX</li>
+                    <li>EMP</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Orta Sütun: Haberler -->
+        <main>
+            <div class="card">
+                <h3>Son Haberler ve Gelişmeler</h3>
+                
+                <!-- 20 Temmuz Haberi -->
+                <div class="news-item">
+                    <span class="news-date">20 Temmuz</span>
+                    <h4 class="news-title">CcC Klanı Fa7'ye Katıldı!</h4>
+                    <p class="news-desc">Fa7 grubu 3 haftada 10 klan yıkarak TR 1. si oldu! Globaldede 2. oldu!</p>
+                </div>
+
+                <!-- 30 Haziran Haberi -->
+                <div class="news-item">
+                    <span class="news-date">30 Haziran 2026</span>
+                    <h4 class="news-title">Son Dakika 9 Yıllık aimless yıkıldı.</h4>
+                    <p class="news-desc">Mini World platformunun köklü ekiplerinden olan 9 yıllık aimless, gerçekleşen büyük mücadeleler sonucunda yıkıldı.</p>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Sağ Sütun: Tag Sıralaması -->
+        <aside>
+            <div class="card">
+                <h3>TAG SIRALAMA</h3>
+                <ul class="ranking-list">
+                    <li><span class="rank-number">1</span> Fa7</li>
+                    <li><span class="rank-number">2</span> SYK</li>
+                    <li><span class="rank-number">3</span> CcC</li>
+                    <li><span class="rank-number">4</span> Hkhomr</li>
+                    <li><span class="rank-number">5</span> YTX</li>
+                    <li><span class="rank-number">6</span> Ateş</li>
+                    <li><span class="rank-number">7</span> Beyaz Kurt</li>
+                    <li><span class="rank-number">8</span> BCA</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+</body>
+</html>
